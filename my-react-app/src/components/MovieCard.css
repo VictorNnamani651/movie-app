@@ -5,3 +5,13 @@
   margin: 1rem;
   text-align: center;
 }
+
+.movie-poster{
+  position: relative;
+}
+
+button.favorite-btn{
+  position: absolute;
+  right: 5%;
+  top: 3%;
+}
