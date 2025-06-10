@@ -1,7 +1,9 @@
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
-function MyNavBar() {
+function MyNavBar({ search_Query, setSearch_query }) {
   return (
     <Navbar expand="md" bg="dark" data-bs-theme="dark">
       <div className="container-lg">
@@ -13,6 +15,17 @@ function MyNavBar() {
           style={{ border: "none" }}
         />
         <Navbar.Collapse id="basic-navbar-nav">
+          <Form className="d-flex ms-auto">
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+              value={search_Query}
+              onChange={setSearch_query}
+            />
+            <Button variant="outline-success">Search</Button>
+          </Form>
           <Nav className="ms-auto">
             <Nav.Link href="#home" className="me-3 fw-bolder text-warning">
               Home
