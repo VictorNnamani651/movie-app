@@ -2,12 +2,13 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 function MyNavBar({ search_Query, setSearch_query }) {
   return (
     <Navbar expand="md" bg="dark" data-bs-theme="dark">
       <div className="container-lg">
-        <Navbar.Brand href="#home" className="text-warning fw-bold">
+        <Navbar.Brand as={Link} to={"/"} className="text-warning fw-bold">
           Movie-App
         </Navbar.Brand>
         <Navbar.Toggle
@@ -32,10 +33,18 @@ function MyNavBar({ search_Query, setSearch_query }) {
             <Button variant="outline-success">Search</Button>
           </Form>
           <Nav className="ms-auto">
-            <Nav.Link href="#home" className="me-3 fw-bolder text-warning">
+            <Nav.Link
+              as={Link}
+              to={"/"}
+              className="me-3 fw-bolder text-warning"
+            >
               Home
             </Nav.Link>
-            <Nav.Link href="#link" className="fw-bolder text-warning">
+            <Nav.Link
+              as={Link}
+              to={"/Favorites"}
+              className="fw-bolder text-warning"
+            >
               Favorites
             </Nav.Link>
           </Nav>
