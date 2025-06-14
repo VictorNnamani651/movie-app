@@ -4,6 +4,7 @@ import MyNavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import { useState } from "react";
 
+
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
   return (

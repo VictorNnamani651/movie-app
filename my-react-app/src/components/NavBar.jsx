@@ -15,7 +15,12 @@ function MyNavBar({ search_Query, setSearch_query }) {
           style={{ border: "none" }}
         />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Form className="d-flex ms-auto">
+          <Form
+            className="d-flex ms-auto mt-3 mt-md-0"
+            onSubmit={(evt) => {
+              evt.preventDefault();
+            }}
+          >
             <Form.Control
               type="search"
               placeholder="Search"
