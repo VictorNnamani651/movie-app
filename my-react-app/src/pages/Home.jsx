@@ -1,23 +1,46 @@
 import MovieCard from "../components/MovieCard";
+import { useEffect, useState } from "react";
+import { getPopularMovies } from "../services/api";
 
 function Home({ search_query_length, search_query }) {
-  const movies = [
-    {
-      id: 1,
-      title: "Bat-man",
-      url: "https://images.pexels.com/photos/31812002/pexels-photo-31812002/free-photo-of-majestic-city-clock-tower-on-an-overcast-day.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    },
-    {
-      id: 2,
-      title: "Mandalorian",
-      url: "https://images.pexels.com/photos/31812002/pexels-photo-31812002/free-photo-of-majestic-city-clock-tower-on-an-overcast-day.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    },
-    {
-      id: 3,
-      title: "Halo",
-      url: "https://images.pexels.com/photos/31812002/pexels-photo-31812002/free-photo-of-majestic-city-clock-tower-on-an-overcast-day.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    },
-  ];
+  const [movies, setMovies] = useState([]);
+  const [err, setErr] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadPopularMovies = async () => {
+      try {
+        const popularMovies = await getPopularMovies();
+        setMovies(popularMovies);
+      } catch (err) {
+        setErr("Failed To Load Movies");
+        console.log(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadPopularMovies();
+  }, [movies]);
+  // [
+  //   {
+  //     id: 1,
+  //     title: "Bat-man",
+  //     url: "https://images.pexels.com/photos/31812002/pexels-photo-31812002/free-photo-of-majestic-city-clock-tower-on-an-overcast-day.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Mandalorian",
+  //     url: "https://images.pexels.com/photos/31812002/pexels-photo-31812002/free-photo-of-majestic-city-clock-tower-on-an-overcast-day.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "Halo",
+  //     url: "https://images.pexels.com/photos/31812002/pexels-photo-31812002/free-photo-of-majestic-city-clock-tower-on-an-overcast-day.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+  //   },
+  // ];
+  // useEffect(() => {
+  //   alert(`${search_query_length} words : ${search_query}`);
+  // }, [search_query_length]);
 
   return (
     <div className="container-md border border-4 border-danger d-flex justify-content-center">
