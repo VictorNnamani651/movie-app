@@ -4,6 +4,7 @@
   padding: 1rem;
   margin: 1rem;
   text-align: center;
+  flex-shrink: 0;
 }
 
 .movie-poster {
@@ -15,4 +16,8 @@ button.favorite-btn {
   position: absolute;
   right: 5%;
   top: 3%;
+}
+
+div.movie-title {
+  max-width: 300px;
 }
