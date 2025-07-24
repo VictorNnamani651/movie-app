@@ -9,7 +9,7 @@ function MyNavBar({ search_Query, setSearch_query }) {
     <Navbar expand="md" bg="dark" data-bs-theme="dark">
       <div className="container-lg">
         <Navbar.Brand as={Link} to={"/"} className="text-warning fw-bold">
-          Movie-App
+          <i className="bi bi-film"></i> Movie-App
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
